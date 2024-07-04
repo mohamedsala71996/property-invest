@@ -29,6 +29,13 @@
                 <div class="col-md-6">
                     <div class="text-center">
                         <h4 class="mb-5 mt-3 fw-bold">Login</h4>
+                        
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <input type="email" name="email" class="form-control mb-3" placeholder="Email" required autofocus autocomplete="username">
