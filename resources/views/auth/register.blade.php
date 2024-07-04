@@ -28,37 +28,26 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-center">
-                        <h4 class="mb-5 mt-3 fw-bold">Sign Up</h4>
+                        <h4 class="mb-5 mt-3 fw-bold">Register</h4>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
-                            <input type="text" name="name" class="form-control mb-3" placeholder="Full Name" value="{{ old('name') }}" required autofocus autocomplete="name">
+                            <input type="text" name="name" class="form-control mb-3" placeholder="Name" required autofocus>
                             @error('name')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
-
-                            <input type="email" name="email" class="form-control mb-3" placeholder="Email" value="{{ old('email') }}" required autocomplete="username">
+                            <input type="email" name="email" class="form-control mb-3" placeholder="Email" required autocomplete="username">
                             @error('email')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
-
-                            <input type="text" name="phone" class="form-control mb-3" placeholder="Phone Number" value="{{ old('phone') }}">
-                            @error('phone')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
                             <div class="password-container mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="Password" id="password" required autocomplete="new-password">
-                                <i class="fas fa-eye toggle-password" onclick="showPassword()" id="togglePassword"></i>
+                                <input type="password" name="password" class="form-control" placeholder="Password" required autocomplete="new-password">
                                 @error('password')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
-                            <input type="password" name="password_confirmation" class="form-control mb-3" placeholder="Confirm Password" required autocomplete="new-password">
-                            @error('password_confirmation')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-
+                            <div class="password-container mb-3">
+                                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" required autocomplete="new-password">
+                            </div>
                             <p class="text-start mb-3">Why do you need to join our website?</p>
                             <div class="d-flex justify-content-between flex-wrap">
                                 <div class="form-check">
@@ -88,8 +77,7 @@
                                     </label>
                                 </div>
                             </div>
-
-                            <button type="submit" class="btn text-black-50 mt-3 fw-bold px-5" style="background-color:#F9E2D7;">Submit</button>
+                            <button type="submit" class="btn text-black-50 fw-bold px-5" style="background-color:#F9E2D7;">Submit</button>
                         </form>
                         <div class="mt-2 d-flex gap-1 flex-wrap justify-content-center">
                             <p class="text-danger">Already have an account?</p>
@@ -109,19 +97,5 @@
     </script>
     <script src="{{ asset('js/all.min.js') }}"></script>
     <script src="{{ asset('js/login.js') }}"></script>
-    <script>
-        function showPassword() {
-            var passwordField = document.getElementById('password');
-            var togglePassword = document.getElementById('togglePassword');
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                togglePassword.classList.add('fa-eye-slash');
-            } else {
-                passwordField.type = 'password';
-                togglePassword.classList.remove('fa-eye-slash');
-            }
-        }
-    </script>
-    <!--script Files-->
 </body>
 </html>
