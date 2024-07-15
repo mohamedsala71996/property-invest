@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Dashboard\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\NewsController;
@@ -14,8 +16,10 @@ use App\Http\Controllers\Dashboard\FloorController;
 use App\Http\Controllers\Dashboard\MemberShipController;
 use App\Http\Controllers\Dashboard\FooterController; 
 use App\Http\Controllers\Dashboard\HomeSettingsController;
-Route::middleware(['auth'])->group(function () {
-Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard.index');
+use App\Http\Controllers\Dashboard\LanguageController;
+
+Route::middleware(['auth:admin'])->group(function () {
+Route::get('/admin-dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
 //news
 Route::get('/admin/news', [NewsController::class, 'index'])->name('dashboard.news.index');
@@ -96,6 +100,15 @@ Route::delete('/admin/completion-status/destroy/{id}',[CompletionStatusControlle
 Route::get('/admin/settings/memberships', [MemberShipController::class, 'index'])->name('dashboard.settings.membership.index');
 Route::get('/admin/settings/footer', [FooterController::class, 'index'])->name('dashboard.settings.footer.index');
 Route::get('/admin/settings/home', [HomeSettingsController::class, 'index'])->name('dashboard.settings.home.index');
+
+
+Route::resource('admins', AdminController::class);
+
+Route::resource('admin/languages', LanguageController::class);
+
+
 });
+
+require __DIR__.'/admin.php';
 
 require __DIR__.'/auth.php';

@@ -36,7 +36,7 @@
                             </div>
                         @endif
                         
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login.user') }}">
                             @csrf
                             <input type="email" name="email" class="form-control mb-3" placeholder="Email" required autofocus autocomplete="username">
                             @error('email')

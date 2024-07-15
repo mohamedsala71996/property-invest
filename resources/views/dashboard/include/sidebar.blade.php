@@ -85,7 +85,70 @@
                                 </li>
                             </ul>
                         </li>
-                       
+                                        <!-- Languages -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon bi bi-translate"></i>
+                        <span class="nav-badge badge text-bg-secondary me-3">{{ \App\Models\Language::count() }}</span> 
+                        <p>Languages</p>
+                        <i class="nav-arrow bi bi-chevron-right"></i>
+                        <!-- You can add a badge for language count if needed -->
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('languages.index') }}" class="nav-link">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>All Languages</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('languages.create') }}" class="nav-link">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Add New Language</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                             <!-- Admins Section -->
+                <li class="nav-item"> 
+                    <a href="#" class="nav-link"> 
+                        <i class="nav-icon bi bi-people-fill"></i>
+                        <p>
+                            Admins
+                            <span class="nav-badge badge text-bg-secondary me-3">{{ \App\Models\Admin::count() }}</span> 
+                            <i class="nav-arrow bi bi-chevron-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item"> 
+                            <a href="{{ route('admins.index') }}" class="nav-link"> 
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>All Admins</p>
+                            </a> 
+                        </li>
+                        <li class="nav-item"> 
+                            <a href="{{ route('admins.create') }}" class="nav-link"> 
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Add New Admin</p>
+                            </a> 
+                        </li>
+                    </ul>
+                </li>
+
+                                       <!-- Add Logout Link Here -->
+                <li class="nav-item">
+                    <a href="{{ route('logout.admin') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="nav-icon bi bi-box-arrow-right"></i>
+                        <p>
+                            Logout
+                        </p>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout.admin') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+
        
                     </ul> <!--end::Sidebar Menu-->
                 </nav>

@@ -81,7 +81,7 @@
                         </form>
                         <div class="mt-2 d-flex gap-1 flex-wrap justify-content-center">
                             <p class="text-danger">Already have an account?</p>
-                            <p class="text-dark fw-bold"><a href="{{ route('login') }}">Login</a></p>
+                            <p class="text-dark fw-bold"><a href="{{ route('login.user') }}">Login</a></p>
                         </div>
                     </div>
                 </div>

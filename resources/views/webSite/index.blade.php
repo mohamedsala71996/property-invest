@@ -25,7 +25,7 @@
                   @csrf
               </form>
           @else
-              <a href="{{ route('login') }}" style="color:white">Login/Signup</a>
+              <a href="{{ route('login.user') }}" style="color:white">Login/Signup</a>
           @endif
       </div>
             </div>

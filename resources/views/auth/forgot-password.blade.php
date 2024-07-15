@@ -65,7 +65,7 @@
                             <button type="submit" class="btn text-black-50 fw-bold px-5" style="background-color:#F9E2D7;">Email Password Reset Link</button>
                         </form>
                         <div class="mt-2 d-flex gap-1 flex-wrap justify-content-center">
-                            <p class="text-dark fw-bold"><a href="{{ route('login') }}">Back to Login</a></p>
+                            <p class="text-dark fw-bold"><a href="{{ route('login.user') }}">Back to Login</a></p>
                         </div>
                     </div>
                 </div>
